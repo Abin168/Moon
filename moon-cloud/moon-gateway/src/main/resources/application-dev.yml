@@ -1,0 +1,15 @@
+# tomcat
+server:
+  port: 8097
+# spring cloud config
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+      config:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+        file-extension: yaml
