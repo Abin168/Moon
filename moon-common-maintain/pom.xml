@@ -15,6 +15,7 @@
     <modules>
         <module>moon-common-core</module>
         <module>moon-base-common</module>
+        <module>moon-nacos</module>
     </modules>
 
     <properties>

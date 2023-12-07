@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.moon.common.nacos.autoConfig.OwnNacosDiscoveryAutoConfiguration\
+  com.moon.common.nacos.config.NacosAllGroupConfig
