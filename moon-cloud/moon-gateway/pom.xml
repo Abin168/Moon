@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.moon.common</groupId>
-            <artifactId>moon-base-common</artifactId>
+            <artifactId>moon-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
