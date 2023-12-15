@@ -4,4 +4,4 @@ spring:
   main:
     allow-bean-definition-overriding: true
   profiles:
-    active: @profiles.active@
+    active: dev
