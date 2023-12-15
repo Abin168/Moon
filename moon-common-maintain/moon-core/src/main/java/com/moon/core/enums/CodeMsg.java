@@ -1,4 +1,4 @@
-package enums;
+package com.moon.core.enums;
 
 import lombok.Getter;
 

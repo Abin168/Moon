@@ -1,4 +1,4 @@
-package exception.config;
+package com.moon.core.exception.config;
 
 import org.hibernate.validator.HibernateValidator;
 import org.hibernate.validator.cfg.ConstraintMapping;

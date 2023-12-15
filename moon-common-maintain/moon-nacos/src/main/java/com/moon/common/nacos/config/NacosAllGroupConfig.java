@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,5 +20,5 @@ import java.util.Set;
 public class NacosAllGroupConfig {
     private Set<String> groupNames;
     private String shareGroup;
-    private String findAll;
+    private String open;
 }

@@ -1,4 +1,4 @@
-package common.result;
+package com.moon.core.common.result;
 
 
 import lombok.Getter;

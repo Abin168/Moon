@@ -1,7 +1,7 @@
-package exception.handler;
+package com.moon.core.exception.handler;
 
-import common.result.R;
-import enums.CodeMsg;
+import com.moon.core.common.result.R;
+import com.moon.core.enums.CodeMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
