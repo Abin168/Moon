@@ -1,35 +1,35 @@
 package com.moon.core.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 
 @Component
-@SuppressWarnings("all")
-public final class SpringHelper implements ApplicationContextAware {
+@Slf4j
+public final class SpringHelper implements BeanFactoryPostProcessor {
+    private static ConfigurableListableBeanFactory beanFactory;
+    private SpringHelper() {}
 
-    private static ApplicationContext context = null;
-
-    public SpringHelper() {
-    }
-
+    @SuppressWarnings("NullableProblems")
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        context = applicationContext;
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        SpringHelper.beanFactory = beanFactory;
     }
 
-    public static <T> T getBean(Class clazz) throws BeansException {
-        return context.getBean((Class<T>) clazz);
+    @SuppressWarnings("unchecked")
+    public static <T> T getBean(Class<?> clazz) throws BeansException {
+        return beanFactory.getBean((Class<T>) clazz);
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T getBean(String clazz) throws BeansException {
-        return (T) context.getBean(clazz);
+        return (T) beanFactory.getBean(clazz);
     }
 
     public static Object getBeanByName(String beanName) throws BeansException {
-        return context.getBean(beanName);
+        return beanFactory.getBean(beanName);
     }
-
 }
