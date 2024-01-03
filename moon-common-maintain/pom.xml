@@ -15,8 +15,9 @@
     <modules>
         <module>moon-core</module>
         <module>moon-common</module>
-        <module>moon-nacos</module>
-        <module>moon-datasource</module>
+        <module>moon-data</module>
+        <module>moon-web</module>
+        <module>moon-cloud</module>
     </modules>
 
     <properties>

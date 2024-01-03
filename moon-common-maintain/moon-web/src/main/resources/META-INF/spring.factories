@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.moon.web.config.validator.ValidatorConfig\
+  com.moon.web.config.WebConfig\
+  com.moon.web.exception.GlobalExceptionHandler\
+  com.moon.web.util.SpringHelper
+
+  

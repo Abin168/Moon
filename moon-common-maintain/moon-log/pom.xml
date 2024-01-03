@@ -10,34 +10,21 @@
     </parent>
 
     <groupId>com.moon.common</groupId>
-    <artifactId>moon-common</artifactId>
+    <artifactId>moon-log</artifactId>
     <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+
         <dependency>
-            <groupId>com.moon.common</groupId>
-            <artifactId>moon-core</artifactId>
-            <version>${common.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.moon.common</groupId>
-            <artifactId>moon-cloud</artifactId>
-            <version>${common.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.moon.common</groupId>
-            <artifactId>moon-web</artifactId>
-            <version>${common.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.moon.common</groupId>
-            <artifactId>moon-data</artifactId>
-            <version>${common.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

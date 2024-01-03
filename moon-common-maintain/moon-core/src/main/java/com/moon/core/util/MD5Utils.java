@@ -30,7 +30,6 @@ public class MD5Utils {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            log.info("MD5Utils md5 error", e);
             return null;
         }
     }

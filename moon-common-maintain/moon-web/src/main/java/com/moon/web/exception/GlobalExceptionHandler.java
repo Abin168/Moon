@@ -1,4 +1,4 @@
-package com.moon.core.exception.handler;
+package com.moon.web.exception;
 
 import com.moon.core.common.result.R;
 import com.moon.core.enums.CodeMsg;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Objects;
 
+/**
+ *  GlobalExceptionHandler
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {

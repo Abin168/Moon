@@ -1,4 +1,4 @@
-package com.moon.data.nacos.dicovery;
+package com.moon.cloud.nacos.dicovery;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.NacosServiceManager;
@@ -8,7 +8,7 @@ import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.api.naming.pojo.ListView;
 import com.alibaba.nacos.common.utils.CollectionUtils;
-import com.moon.data.nacos.config.NacosAllGroupConfig;
+import com.moon.cloud.nacos.config.NacosAllGroupConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 

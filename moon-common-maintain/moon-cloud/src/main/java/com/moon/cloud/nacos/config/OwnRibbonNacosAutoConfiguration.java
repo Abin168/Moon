@@ -1,4 +1,4 @@
-package com.moon.data.nacos.config;
+package com.moon.cloud.nacos.config;
 
 
 import com.alibaba.cloud.nacos.ConditionalOnNacosDiscoveryEnabled;

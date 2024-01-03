@@ -1,13 +1,13 @@
-package com.moon.data.nacos.autoConfig;
+package com.moon.cloud.nacos.autoConfig;
 
 import com.alibaba.cloud.nacos.ConditionalOnNacosDiscoveryEnabled;
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.NacosServiceManager;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration;
 import com.alibaba.cloud.nacos.discovery.NacosServiceDiscovery;
-import com.moon.data.nacos.config.NacosAllGroupConfig;
-import com.moon.data.nacos.dicovery.NacosServiceDiscoveryAll;
-import com.moon.data.nacos.dicovery.NacosServiceDiscoveryShare;
+import com.moon.cloud.nacos.config.NacosAllGroupConfig;
+import com.moon.cloud.nacos.dicovery.NacosServiceDiscoveryAll;
+import com.moon.cloud.nacos.dicovery.NacosServiceDiscoveryShare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

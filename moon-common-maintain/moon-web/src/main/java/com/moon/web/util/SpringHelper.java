@@ -1,4 +1,4 @@
-package com.moon.core.util;
+package com.moon.web.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;

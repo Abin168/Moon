@@ -1,4 +1,4 @@
-package com.moon.core.exception.config;
+package com.moon.web.config.validator;
 
 import org.hibernate.validator.HibernateValidator;
 import org.hibernate.validator.cfg.ConstraintMapping;
@@ -9,6 +9,9 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+/**
+ * spring Validator config
+ */
 @Configuration
 public class ValidatorConfig {
     @Bean
