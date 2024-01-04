@@ -1,7 +1,6 @@
 package com.moon.web.config.validator;
 
 import org.hibernate.validator.HibernateValidator;
-import org.hibernate.validator.cfg.ConstraintMapping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,7 +18,6 @@ public class ValidatorConfig {
         ValidatorFactory validatorFactory = Validation.byProvider(HibernateValidator.class)
                 .configure()
                 .failFast(true) // fail fast config
-                .addMapping((ConstraintMapping) null)
                 .buildValidatorFactory();
         return validatorFactory.getValidator();
     }
