@@ -1,6 +1,5 @@
 package com.moon.core.util;
 
-import lombok.extern.slf4j.Slf4j;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -8,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 /**
  * The type MD5 utils.
  */
-@Slf4j
 public class MD5Utils {
 
     public static String md5(String plainText) {
