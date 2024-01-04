@@ -1,6 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.moon.cloud.config.FeignConfig\
-  com.moon.cloud.nacos.autoConfig.OwnNacosDiscoveryAutoConfiguration\
+  com.moon.cloud.config.FeignConfig, \
+  com.moon.cloud.nacos.autoConfig.OwnNacosDiscoveryAutoConfiguration, \
   com.moon.cloud.nacos.config.NacosAllGroupConfig
 
 
