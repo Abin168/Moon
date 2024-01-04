@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Data
 @RefreshScope
-@ConditionalOnMissingBean
 @Configuration(proxyBeanMethods = false)
 @ConfigurationProperties(prefix = "moon.group.isolation")
 @AutoConfigureBefore({NacosDiscoveryAutoConfiguration.class})
