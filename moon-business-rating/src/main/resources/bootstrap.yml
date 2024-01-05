@@ -4,4 +4,9 @@ spring:
   main:
     allow-bean-definition-overriding: true
   profiles:
-    active: dev
+    active: @profiles.active@
+mybatis:
+  mapper-locations: src/main/java/**/*Mapper.xml
+  type-aliases-package: com.moon.business.rating.repo
+  configuration:
+    map-underscore-to-camel-case: true
