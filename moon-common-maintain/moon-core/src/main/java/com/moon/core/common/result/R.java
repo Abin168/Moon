@@ -70,7 +70,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> success() {
-        return init(SUCCESS, "请求成功", null);
+        return init(SUCCESS, "success", null);
     }
 
     public static <T> R<?> success(String msg, T data) {
@@ -78,7 +78,7 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<?> success(T data) {
-        return init(SUCCESS, "请求成功", data);
+        return init(SUCCESS, "success", data);
     }
 
     public static <T> R<?> success(int code, String desc, T data) {
@@ -86,11 +86,11 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<?> error() {
-        return init(FAIL, "系统处理异常", null);
+        return init(FAIL, "error", null);
     }
 
     public static <T> R<?> error(int code) {
-        return init(code, "处理异常", null);
+        return init(code, "error", null);
     }
 
     public static <T> R<?> error(int code, String desc) {
