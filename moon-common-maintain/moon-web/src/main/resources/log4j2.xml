@@ -17,7 +17,7 @@
         - %T : 线程号
         - %L : 日志输出所在行数
         - %M : 日志输出所在方法名 -->
-        <Property name="log_pattern">%X{traceId} %date{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%c{1.}.%M:%L] %msg%n%style{%xException}{red}</Property>
+        <Property name="log_pattern">%style{%X{TRACE_ID}}{Cyan} %style{%date{yyyy-MM-dd HH:mm:ss.SSS}}{Blue} %style{[%t]}{Green} %highlight{%-5level} %style{[%c{1.}.%M:%L]}{Magenta} %style{%msg}{Cyan}%n%style{%xException}{red}</Property>
         <!-- 单个日志文件最大大小，单位可以是KB, MB or GB -->
         <Property name="max_single_file_size">1MB</Property>
     </Properties>
@@ -234,6 +234,8 @@
         <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
         <Logger name="org.springframework" level="INFO"/>
         <Logger name="org.mybatis" level="INFO"/>
+        <!---->
+        <Logger name="com.alibaba.nacos" level="error"/>
 
         <!--log4j2 自带过滤日志-->
         <Logger name="org.apache.catalina.startup.DigesterFactory" level="error"/>

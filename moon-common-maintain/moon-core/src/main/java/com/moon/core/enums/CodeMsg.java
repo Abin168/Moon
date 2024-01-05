@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum CodeMsg {
 
-    SUCCESS(200, "200", "请求处理成功"),
-    ERROR(500, "500", "系统异常");
+    SUCCESS(200, "200", "请求成功"),
+    ERROR(500, "500", "服务器开小差了，工程师大大正在努力抢修中");
 
     private final int code;
     private final String msg;
