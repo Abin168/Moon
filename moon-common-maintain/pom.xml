@@ -19,6 +19,7 @@
         <module>moon-web</module>
         <module>moon-cloud</module>
         <module>moon-mq</module>
+        <module>moon-excel</module>
     </modules>
 
     <properties>
@@ -26,6 +27,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <common.version>1.0.0-SNAPSHOT</common.version>
         <collections4.version>4.4</collections4.version>
+        <easyexcel.version>2.1.6</easyexcel.version>
     </properties>
 
     <distributionManagement>
