@@ -1,0 +1,14 @@
+server:
+  port: 8999
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+      config:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}-dev
+        file-extension: yaml
+        namespace: 656894fb-ef06-41b6-bd04-bb9b713cbdfc
