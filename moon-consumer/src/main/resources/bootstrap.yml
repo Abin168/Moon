@@ -10,12 +10,19 @@ spring:
     listener:
       ack-mode: manual
     producer:
-      retries: 3
+      acks: all                # 所有副本 Broker 都要接收到消息
+      retries: 3               # 消息重试次数
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        linger.ms: 1
     consumer:
       auto-offset-reset: earliest
       max-poll-records: 50
       enable-auto-commit: false
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: moon.group1
 mybatis:
