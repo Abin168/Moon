@@ -20,6 +20,7 @@
         <module>moon-cloud</module>
         <module>moon-mq</module>
         <module>moon-excel</module>
+        <module>moon-kafka</module>
     </modules>
 
     <properties>
