@@ -18,7 +18,7 @@ public class KafkaUtil {
     }
 
     @SuppressWarnings(value = {"rawtypes"})
-    private static void sendToKafka(String topic, Integer key, String value) {
+    public static void sendToKafka(String topic, Integer key, String value) {
         ListenableFuture rst = kafkaTemplate.send(topic, key, value);
     }
 }

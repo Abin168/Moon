@@ -250,5 +250,6 @@
         <Logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
         <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
         <Logger name="org.thymeleaf" level="warn"/>
+        <Logger name="org.apache.kafka" level="warn"/>
     </Loggers>
 </Configuration>
