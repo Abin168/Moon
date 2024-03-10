@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan({"com.moon.business.rating.mapper"})
+@MapperScan({"com.moon.business.rating.repo.mapper"})
 public class MoonBusinessRating {
     public static void main(String[] args) {
         SpringApplication.run(MoonBusinessRating.class, args);

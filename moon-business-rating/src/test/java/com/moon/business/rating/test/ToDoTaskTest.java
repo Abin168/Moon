@@ -1,8 +1,7 @@
 package com.moon.business.rating.test;
 
-import com.alibaba.fastjson.JSONObject;
 import com.moon.business.rating.MoonBusinessRating;
-import com.moon.business.rating.service.ToDoTaskInterface;
+import com.moon.business.rating.service.KafkaMsgSendTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +12,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = {MoonBusinessRating.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ToDoTaskTest {
     @Autowired
-    private ToDoTaskInterface toDoTaskInterface;
+    private KafkaMsgSendTest test;
 
     @Test
-    public void test() {
-        toDoTaskInterface.doTask(new JSONObject());
+    public void test() throws InterruptedException {
+        test.sendTsgTest();
     }
 
 

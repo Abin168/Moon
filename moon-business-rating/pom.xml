@@ -25,6 +25,13 @@
             <artifactId>moon-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.moon.common</groupId>
+            <artifactId>moon-kafka</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
