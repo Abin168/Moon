@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 @Component
+@SuppressWarnings(value = {"rawtypes"})
 public class KafkaUtil {
 
     private static KafkaTemplate kafkaTemplate;
@@ -17,7 +18,6 @@ public class KafkaUtil {
         KafkaUtil.kafkaTemplate = kafkaTemplate;
     }
 
-    @SuppressWarnings(value = {"rawtypes"})
     public static void sendToKafka(String topic, Integer key, String value) {
         ListenableFuture rst = kafkaTemplate.send(topic, key, value);
     }
