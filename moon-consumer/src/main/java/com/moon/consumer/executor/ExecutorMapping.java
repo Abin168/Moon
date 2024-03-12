@@ -30,7 +30,7 @@ public class ExecutorMapping {
             try {
                 return executor.invoke(cmd, msg);
             } catch (Exception e) {
-                log.error("ExecutorMapping invoke cmd={} executor={} msg={}", cmd, executor.toString(), msg);
+                log.error("ExecutorMapping invoke cmd={} executor={} msg={}", cmd, executor.toString(), msg, e);
                 return false;
             }
         }
