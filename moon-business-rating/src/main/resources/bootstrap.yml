@@ -5,26 +5,6 @@ spring:
     allow-bean-definition-overriding: true
   profiles:
     active: @profiles.active@
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    listener:
-      ack-mode: manual
-    producer:
-      acks: all                # 所有副本 Broker 都要接收到消息
-      retries: 3               # 消息重试次数
-      batch-size: 16384
-      buffer-memory: 33554432
-      key-serializer: org.apache.kafka.common.serialization.IntegerDeserializer
-      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      properties:
-        linger.ms: 1
-    consumer:
-      auto-offset-reset: earliest
-      max-poll-records: 50
-      enable-auto-commit: false
-      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      group-id: moon.group1
 mybatis:
   mapper-locations: src/main/java/**/*Mapper.xml
   type-aliases-package: com.moon.business.rating.repo
