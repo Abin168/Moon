@@ -10,6 +10,7 @@
 
     <name>moon-parent</name>
     <description>moon parent</description>
+    <packaging>pom</packaging>
 
     <distributionManagement>
         <repository>
@@ -45,7 +46,6 @@
         <velocity.version>1.7</velocity.version>
         <fastjson.version>1.2.74</fastjson.version>
         <minio.version>8.0.3</minio.version>
-        <poi.version>4.1.2</poi.version>
         <common-pool.version>2.6.2</common-pool.version>
         <lombok.version>1.18.20</lombok.version>
     </properties>
@@ -139,13 +139,6 @@
                 <version>${commons.io.version}</version>
             </dependency>
 
-            <!-- excel工具 -->
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>${poi.version}</version>
-            </dependency>
-
             <!-- 文件上传工具类 -->
             <dependency>
                 <groupId>commons-fileupload</groupId>
@@ -195,8 +188,6 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <packaging>pom</packaging>
 
     <dependencies>
 
