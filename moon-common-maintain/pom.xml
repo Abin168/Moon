@@ -21,6 +21,7 @@
         <module>moon-mq</module>
         <module>moon-excel</module>
         <module>moon-kafka</module>
+        <module>moon-poi</module>
     </modules>
 
     <properties>
@@ -29,6 +30,7 @@
         <common.version>1.0.0-SNAPSHOT</common.version>
         <collections4.version>4.4</collections4.version>
         <easyexcel.version>2.1.6</easyexcel.version>
+        <apache.poi>5.2.5</apache.poi>
     </properties>
 
     <distributionManagement>
