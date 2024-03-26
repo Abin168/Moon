@@ -1,4 +1,4 @@
-package com.moon.poi.common;
+package com.moon.poi.common.enums;
 
 import lombok.Getter;
 
