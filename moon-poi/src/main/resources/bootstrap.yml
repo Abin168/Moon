@@ -1,0 +1,12 @@
+spring:
+  application:
+      name: moon-poi
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: @profiles.active@
+mybatis:
+  mapper-locations: src/main/java/**/*Mapper.xml
+  type-aliases-package: com.moon.poi.repo
+  configuration:
+    map-underscore-to-camel-case: true

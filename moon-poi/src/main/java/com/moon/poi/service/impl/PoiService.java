@@ -1,39 +1,79 @@
 package com.moon.poi.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.moon.core.common.result.R;
 import com.moon.poi.common.constants.PoiConstant;
 import com.moon.poi.service.AbstractPoi;
+import com.moon.poi.util.FileUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.Path;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @Service
+@Slf4j
 public class PoiService extends AbstractPoi {
 
     @Qualifier("poiThreadPoolTaskExecutor")
     @Autowired
     private ThreadPoolTaskExecutor executor;
 
+    @Value("${template.tempDir}")
+    private String tempDir;
+
     @Override
-    public R<?> wordFilling(String tempPath, Map<String, Object> map) {
-        final int batchSize = 2;
-//        return R.success();
-        Path path = Paths.get(tempPath);
+    public R<String> wordFilling(String tempPath, Map<String, Object> map) {
+        String copyTemplateFile = String.format("%s%s%s", tempDir, "tempFile", PoiConstant.DOCX_SUFFIX);
+        FileUtil.copyFile(tempPath, copyTemplateFile);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        String finalFile = String.format("%s_%s%s", tempDir, uuid, PoiConstant.DOCX_SUFFIX);
+        try (XWPFDocument doc = changWord(copyTemplateFile, map);
+             FileOutputStream out = new FileOutputStream(finalFile)) {
+            if (Objects.isNull(doc)) {
+                // fixme
+                return R.fail();
+            }
+            doc.write(out);
+        } catch (IOException e) {
+            //
+        }
+        // upload out file fixme
+        FileUtil.deleteFile(copyTemplateFile);
         return R.success();
     }
 
-    public void replaceTxt(XWPFDocument document, final Map<String, Object> txtMap) {
+    private XWPFDocument changWord(String inputFile, final Map<String, Object> textMap) {
+        XWPFDocument document;
+        try {
+            document = new XWPFDocument(Files.newInputStream(Paths.get(inputFile)));
+            long start = System.currentTimeMillis();
+            replaceTxtFuture(document, textMap);
+            long end = System.currentTimeMillis();
+            log.info("changWord consumer time {}", end - start);
+        } catch (Exception e) {
+            log.error("WordUtils changWord error inputFile={}, textMap={}", inputFile, JSONObject.toJSONString(textMap), e);
+            return null;
+        }
+        return document;
+    }
+
+    private void replaceTxt(XWPFDocument document, final Map<String, Object> txtMap) {
         List<XWPFParagraph> paragraphs = document.getParagraphs();
         paragraphs.forEach(paragraph -> {
             String text = paragraph.getText();
@@ -44,9 +84,9 @@ public class PoiService extends AbstractPoi {
         });
     }
 
-    public void replaceTxtFuture(XWPFDocument document, final Map<String, Object> txtMap) {
+    private void replaceTxtFuture(XWPFDocument document, final Map<String, Object> txtMap) {
         List<XWPFParagraph> paragraphs = document.getParagraphs();
-        CompletableFuture.allOf(paragraphs.stream()
+        CompletableFuture<Void> future = CompletableFuture.allOf(paragraphs.stream()
                 .map(paragraph ->
                         CompletableFuture.runAsync(() -> {
                             String text = paragraph.getText();

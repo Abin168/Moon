@@ -6,4 +6,5 @@ public final class PoiConstant {
     public static final String LEFT_SYMBOL = "«";
     public static final String RIGHT_SYMBOL = "»";
     public static final String SYMBOL = "«»";
+    public static final String DOCX_SUFFIX = ".docx";
 }
