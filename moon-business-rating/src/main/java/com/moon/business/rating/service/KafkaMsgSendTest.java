@@ -1,6 +1,7 @@
 package com.moon.business.rating.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.moon.kafka.util.KafkaUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -21,7 +22,8 @@ public class KafkaMsgSendTest {
         sendMsg("moon", 1024, msg.toJSONString());
         Thread.sleep(2000);
         sendMsg("sun", 1025, msg.toJSONString());
-
+        Thread.sleep(2000);
+        KafkaUtil.sendToKafka("sun", 1025, msg.toJSONString());
     }
     public void sendMsg(String topic, Integer key, String msg) {
         template.send(topic, key, msg).addCallback(new ListenableFutureCallback() {
