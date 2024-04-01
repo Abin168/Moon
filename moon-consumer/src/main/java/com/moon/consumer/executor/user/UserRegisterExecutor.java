@@ -1,7 +1,7 @@
 package com.moon.consumer.executor.user;
 
 import com.alibaba.fastjson.JSONObject;
-import com.moon.consumer.MsgType;
+import com.moon.consumer.common.MsgType;
 import com.moon.consumer.executor.ConsumerExecutor;
 import com.moon.consumer.executor.ExecutorMapping;
 import com.moon.consumer.remote.RatingClient;

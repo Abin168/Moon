@@ -1,4 +1,4 @@
-package com.moon.consumer;
+package com.moon.consumer.common;
 
 import lombok.Getter;
 
