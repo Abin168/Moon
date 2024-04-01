@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @Slf4j
@@ -38,7 +37,7 @@ public class PoiService extends AbstractPoi {
     private String tempDir;
 
     @Override
-    public R<String> wordFilling(String tempPath, Map<String, Object> map) {
+    public R<String> filling(String tempPath, Map<String, Object> map) {
         String copyTemplateFile = String.format("%s%s%s", tempDir, "tempFile", PoiConstant.DOCX_SUFFIX);
         FileUtil.copyFile(tempPath, copyTemplateFile);
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -63,7 +62,7 @@ public class PoiService extends AbstractPoi {
         try {
             document = new XWPFDocument(Files.newInputStream(Paths.get(inputFile)));
             long start = System.currentTimeMillis();
-            replaceTxtFuture(document, textMap);
+            replaceTxt(document, textMap);
             long end = System.currentTimeMillis();
             log.info("changWord consumer time {}", end - start);
         } catch (Exception e) {
@@ -82,20 +81,6 @@ public class PoiService extends AbstractPoi {
             }
             paragraph.getRuns().forEach(run -> replaceRun(run, txtMap));
         });
-    }
-
-    private void replaceTxtFuture(XWPFDocument document, final Map<String, Object> txtMap) {
-        List<XWPFParagraph> paragraphs = document.getParagraphs();
-        CompletableFuture<Void> future = CompletableFuture.allOf(paragraphs.stream()
-                .map(paragraph ->
-                        CompletableFuture.runAsync(() -> {
-                            String text = paragraph.getText();
-                            if (!containSymBol(text)) {
-                                return;
-                            }
-                            paragraph.getRuns().forEach(run -> replaceRun(run, txtMap));
-                        }, executor)
-                ).toArray(CompletableFuture[]::new));
     }
 
     private void replaceRun(XWPFRun run, final Map<String, Object> txtMap) {
