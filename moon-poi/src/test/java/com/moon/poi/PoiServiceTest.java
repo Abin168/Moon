@@ -28,7 +28,7 @@ public class PoiServiceTest {
         map.put("name", "bob");
         map.put("age", 20);
         map.put("msg", "apache poi");
-        R<String> stringR = poiService.wordFilling(tempDir, map);
+        R<String> stringR = poiService.filling(tempDir, map);
     }
 
 }
